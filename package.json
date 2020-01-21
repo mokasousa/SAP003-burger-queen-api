@@ -1,14 +1,16 @@
 {
   "name": "bq-api-node",
   "version": "1.0.0",
-  "description": "",
+  "description": "Back-end for burger queen app",
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "dev": "nodemon  --exec babel-node ./api/index.js"
+    "dev": "nodemon  --exec babel-node ./api/index.js",
+    "build": "babel src --out-dir dist",
+    "start": "node dist/index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Monica Sousa",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
