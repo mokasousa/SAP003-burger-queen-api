@@ -2,18 +2,23 @@
 
 import express from 'express';
 import bodyParser from 'body-parser';
-import productsRoute from '../routes/products';
-import ordersRoute from '../routes/orders';
-import tablesRoute from '../routes/tables';
+// import productsRoute from '../routes/products';
+// import ordersRoute from '../routes/orders';
+// import tablesRoute from '../routes/tables';
+
+import publishersRoute from '../routes/publishers';
+import authorsRoute from '../routes/authors';
 
 //initialization
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+// app.use('/api/products', productsRoute);
+// app.use('/api/orders', ordersRoute);
+// app.use('/api/tables', tablesRoute);
 
-app.use('/api/products', productsRoute);
-app.use('/api/orders', ordersRoute);
-app.use('/api/tables', tablesRoute);
+app.use('/api/publishers', publishersRoute);
+app.use('/api/publishers', authorsRoute);
 
 export default app;
