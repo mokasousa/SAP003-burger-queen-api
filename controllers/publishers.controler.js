@@ -3,6 +3,11 @@ import Publishers from '../models/publishers';
 //req.body -> fetched data when user visits this route
 
 export async function getPublishers(req, res) {
+    // const {
+    //     name,
+    //     address,
+    //     created_at
+    // } = req.body;
     try {
         const publishers = await Publishers.findAll()
         return res.json({
@@ -11,7 +16,6 @@ export async function getPublishers(req, res) {
     } catch (e) {
         console.log(e)
     };
-
 }
 
 export async function createPublisher(req, res) {
@@ -77,7 +81,7 @@ export async function updateOnePublisher(req, res) {
         created_at
     } = req.body;
 
-    const publishers = await Publishers.findAll({
+    const publishers = await Publishers.findOne({
         attributes: ['id', 'name', 'address', 'created_at'],
         where:{
             id,
