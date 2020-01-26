@@ -1,7 +1,7 @@
 {
   "name": "bq-api-node",
   "version": "1.0.0",
-  "description": "Back-end for burger queen app",
+  "description": "API for burger queen app",
   "main": "index.js",
   "scripts": {
     "test": "jest",

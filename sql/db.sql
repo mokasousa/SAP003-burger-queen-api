@@ -1,59 +1,34 @@
-CREATE TABLE IF NOT EXISTS publishers(
+CREATE TABLE IF NOT EXISTS orders(
+    id           SERIAL    PRIMARY KEY,
+    table        SMALLINT  NOT NULL,
+    status_order CHAR(255) NOT NULL,
+    created_at   TIMESTAMP DEFAULT NOW()
+    updated_at   TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS products(
     id         SERIAL    PRIMARY KEY,
     name       CHAR(255) NOT NULL,
-    address    CHAR(255) NULL,
+    breakfast  BOOLEAN   NOT NULL,
+    price      DECIMAL(10,2) NOT NULL,
     created_at TIMESTAMP DEFAULT NOW()
-);
-CREATE TABLE IF NOT EXISTS authors(
-    id         SERIAL    PRIMARY KEY,
-    name       CHAR(255) NOT NULL,
-    is_alive    BOOLEAN   NOT NULL,
-    created_at TIMESTAMP DEFAULT NOW(),
-    publisher_id INTEGER REFERENCES publishers(id)
+    updated_at TIMESTAMP DEFAULT NOW()
 );
 
-INSERT INTO authors(name, is_alive)
-    VALUES('Mia Couto', TRUE);
+CREATE TABLE IF NOT EXISTS items(
+    id           SERIAL    PRIMARY KEY,
+    products_id  INTEGER   REFERENCES products(id)
+    order_id     INTEGER   REFERENCES orders(id)
+    status_item  CHAR(255) NOT NULL,
+    created_at   TIMESTAMP DEFAULT NOW()
+    updated_at   TIMESTAMP DEFAULT NOW()
+);
 
-INSERT INTO authors(name, is_alive)
-    VALUES('Chimamanda', TRUE);
+INSERT INTO orders(table, status)
+    VALUES(1, 'Pendente');
 
-INSERT INTO authors(name, is_alive)
-    VALUES('Gabriel Garcia Marques', FALSE);
+INSERT INTO products(name, breakfast, price)
+    VALUES('Café Americano', TRUE, 5);
 
-INSERT INTO publishers(name, address)
-    VALUES('Rocco', 'Avenida Paulista, 2000');
-
-INSERT INTO publishers(name, address)
-    VALUES('Usp', 'Avenida do universitário, 2000');
-
--- CREATE TABLE IF NOT EXISTS orders(
---     id         SERIAL    PRIMARY KEY,
---     client     CHAR(255) NOT NULL,
---     created_at TIMESTAMP DEFAULT NOW()
--- );
-
--- CREATE TABLE IF NOT EXISTS products(
---     id         SERIAL    PRIMARY KEY,
---     name       CHAR(255) NOT NULL,
---     breakfast  BOOLEAN   NOT NULL,
---     price      DECIMAL(10,2) NOT NULL,
---     extra?
---     option?
--- );
-
--- CREATE TABLE IF NOT EXISTS tables(
---     id         SERIAL    PRIMARY KEY,
-
-
-
--- );
-
--- INSERT INTO orders()
---     VALUES();
-
--- INSERT INTO products()
---     VALUES();
-
--- INSERT INTO tables()
---     VALUES();
+INSERT INTO items(products_id, order_id, status_item)
+    VALUES(792y52873058240589i, 39y492736ejfn59283740, 'Pendente');
