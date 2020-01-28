@@ -10,6 +10,6 @@ router.get('/', ProductController.getAllProducts);
 // /api/products/:productId
 router.get('/:id', ProductController.getProduct);
 router.put('/:id', ProductController.updateProduct);
-router.delete('/:id', ProductController.deleteOProduct);
+router.delete('/:id', ProductController.deleteProduct);
 
 export default router;

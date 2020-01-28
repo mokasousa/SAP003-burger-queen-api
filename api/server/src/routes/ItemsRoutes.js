@@ -12,7 +12,7 @@ router.get('/:id', ItemController.getItem);
 router.put('/:id', ItemController.updateItem);
 router.delete('/:id', ItemController.deleteItem);
 
-// /api/items/order/:order_id
-// router.get('/order/:order_id', getItemsByOrder)
+// /api/items/order/:orderId
+router.get('/order/:orderId', ItemController.getItemsByOrder)
 
 export default router;

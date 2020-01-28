@@ -102,6 +102,29 @@ class ItemController {
       return util.send(res)
     }
   }
+
+  static async getItemsByOrder (req, res) {
+    const { orderId } = req.params
+
+    if (!Number(id)) {
+      util.setError(400, 'Please input a valid numeric orderId value')
+      return util.send(res)
+    }
+
+    try {
+      const orderItems = await ItemService.getItemsByOrder(orderId)
+
+      if (!orderItems) {
+        util.setError(404, `Cannot find Items with the order id ${orderId}`)
+      } else {
+        util.setSuccess(200, 'Found Items', theItem)
+      }
+      return util.send(res)
+    } catch (error) {
+      util.setError(404, error)
+      return util.send(res)
+    }
+  }
 }
 
 export default ItemController;

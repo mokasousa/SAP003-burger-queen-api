@@ -10,6 +10,6 @@ router.get('/', OrderController.getAllOrders);
 // /api/orders/:orderId // : -> express function 
 router.get('/:id', OrderController.getOrder);
 router.put('/:id', OrderController.updateOrder);
-router.delete('/:id', OrderController.deleteOrder)
+router.delete('/:id', OrderController.deleteOrder);
 
 export default router;
