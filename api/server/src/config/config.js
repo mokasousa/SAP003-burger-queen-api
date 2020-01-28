@@ -1,24 +1,24 @@
 module.exports = {
   "development": {
     "username": "postgres",
-    "password": null,
-    "database": "SAP003-burger-queen-api _development",
+    "password": '12345678',
+    "database": "queen_development",
     "host": "127.0.0.1",
     "dialect": "postgres",
     "operatorsAliases": false
   },
   "test": {
     "username": "postgres",
-    "password": null,
-    "database": "SAP003-burger-queen-api _test",
+    "password": '12345678',
+    "database": "queen_test",
     "host": "127.0.0.1",
     "dialect": "postgres",
     "operatorsAliases": false
   },
   "production": {
     "username": "postgres",
-    "password": null,
-    "database": "SAP003-burger-queen-api _production",
+    "password": '12345678',
+    "database": "queen_production",
     "host": "127.0.0.1",
     "dialect": "postgres",
     "operatorsAliases": false

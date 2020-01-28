@@ -1,12 +1,14 @@
+//como o banco de dados vai se comportar no tempo de vida da aplicação
+
 import fs from 'fs'
 import path from 'path'
 import Sequelize from 'sequelize'
-import configJson from '../config/config'
+import configJS from '../config/config'
 
 const basename = path.basename(__filename)
 const env = process.env.NODE_ENV ? process.env.NODE_ENV : 'development'
 
-const config = configJson[env]
+const config = configJS[env]
 
 console.log('this is the environment: ', env)
 
@@ -57,4 +59,10 @@ Object.keys(db).forEach((modelName) => {
 db.sequelize = sequelize
 db.Sequelize = Sequelize
 
+/*-----------------------------------------------is this needed? 
+db.items = require('../models/items')(sequelize, Sequelize);
+db.products = require('../models/products')(sequelize, Sequelize);
+db.orders = require('../models/orders')(sequelize, Sequelize);
+db.tables = require('../models/tables')(sequelize, Sequelize);
+*/
 export default db;
