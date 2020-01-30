@@ -20,14 +20,15 @@ class ProductController {
   }
 
   static async createProduct(req, res) {
-    console.log(req.body.name, req.body.breakfast, req.body.price)
-    if (!req.body.name || !req.body.breakfast || !req.body.price ) {
+    //console.log(req.body.name, req.body.breakfast, req.body.price)
+    if (!req.body.name || typeof req.body.breakfast !== boolean || !req.body.price ) {
+      console.log(req.body.name, req.body.breakfast, req.body.price)
       util.setError(400, 'Please provide complete details')
       return util.send(res)
     }
     const newProduct = req.body
     try {
-      const createdProduct = await ProductService.addProduct(newProduct)
+      const createdProduct = await ProductService.createProduct(newProduct)
       util.setSuccess(201, 'Product Created!', createdProduct)
       return util.send(res)
     } catch (error) {
