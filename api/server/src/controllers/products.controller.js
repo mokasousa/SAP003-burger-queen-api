@@ -7,8 +7,10 @@ class ProductController {
   static async getAllProducts(req, res) {
     try {
       const allProducts = await ProductService.getAllProducts()
+      console.log(allProducts)
       if (allProducts.length > 0) {
         util.setSuccess(200, 'Products retrieved', allProducts)
+
       } else {
         util.setSuccess(200, 'No Product found')
       }
@@ -20,8 +22,9 @@ class ProductController {
   }
 
   static async createProduct(req, res) {
-    //console.log(req.body.name, req.body.breakfast, req.body.price)
-    if (!req.body.name || typeof req.body.breakfast !== boolean || !req.body.price ) {
+    console.log(req.body)
+    console.log("olá")
+    if (!req.body.name || !req.body.breakfast || !req.body.price ) {
       console.log(req.body.name, req.body.breakfast, req.body.price)
       util.setError(400, 'Please provide complete details')
       return util.send(res)

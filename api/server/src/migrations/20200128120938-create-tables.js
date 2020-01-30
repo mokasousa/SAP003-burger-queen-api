@@ -2,17 +2,17 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('tables', {
+    return queryInterface.createTable('Tables', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      tableNumber: {
+      TableNumber: {
         type: Sequelize.INTEGER
       },
-      isFree: {
+      IsFree: {
         type: Sequelize.BOOLEAN
       },
       createdAt: {
@@ -27,6 +27,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('tables'); 
+    return queryInterface.dropTable('Tables'); 
   }
 };

@@ -20,14 +20,14 @@ class TableController {
   }
 
   static async createTable(req, res) {
-    console.log(req.body.tableNumber, req.body.isFree)
-    if (!req.body.tableNumber || !req.body.isFree) {
+    console.log(req.body.TableNumber, req.body.IsFree)
+    if (!req.body.TableNumber || !req.body.IsFree) {
       util.setError(400, 'Please provide complete details')
       return util.send(res)
     }
     const newTable = req.body
     try {
-      const createdTable = await TableService.addTable(newTable)
+      const createdTable = await TableService.createTable(newTable)
       util.setSuccess(201, 'Table Created!', createdTable)
       return util.send(res)
     } catch (error) {

@@ -1,8 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Table = sequelize.define('Table', {
-    tableNumber: DataTypes.INTEGER,
-    isFree: DataTypes.BOOLEAN
+    TableNumber: DataTypes.INTEGER,
+    IsFree: DataTypes.BOOLEAN
   }, {});
   Table.associate = function(models) {
     //Order.belongsTo(models.Table)

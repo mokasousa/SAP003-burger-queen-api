@@ -20,14 +20,14 @@ class ItemController {
   }
 
   static async createItem(req, res) {
-    console.log(req.body.productsId, req.body.orderId, req.body.statusItem)
-    if (!req.body.productsId || !req.body.orderId || !req.body.statusItem) {
+    console.log(req.body.ProductId, req.body.OrderId, req.body.StatusItem)
+    if (!req.body.ProductId || !req.body.OrderId || !req.body.StatusItem) {
       util.setError(400, 'Please provide complete details')
       return util.send(res)
     }
     const newItem = req.body
     try {
-      const createdItem = await ItemService.addItem(newItem)
+      const createdItem = await ItemService.createItem(newItem)
       util.setSuccess(201, 'Item Created!', createdItem)
       return util.send(res)
     } catch (error) {

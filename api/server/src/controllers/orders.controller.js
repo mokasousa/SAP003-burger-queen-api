@@ -20,14 +20,14 @@ class OrderController {
   }
 
   static async createOrder(req, res) {
-    console.log(req.body.tableId, req.body.statusOrder)
-    if (!req.body.tableId || !req.body.statusOrder ) {
+    console.log(req.body.TableId, req.body.StatusOrder)
+    if (!req.body.TableId || !req.body.StatusOrder ) {
       util.setError(400, 'Please provide complete details')
       return util.send(res)
     }
     const newOrder = req.body
     try {
-      const createdOrder = await OrderService.addOrder(newOrder)
+      const createdOrder = await OrderService.createOrder(newOrder)
       util.setSuccess(201, 'Order Created!', createdOrder)
       return util.send(res)
     } catch (error) {
