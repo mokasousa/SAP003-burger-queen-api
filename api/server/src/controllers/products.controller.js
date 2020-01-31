@@ -10,9 +10,8 @@ class ProductController {
       console.log(allProducts)
       if (allProducts.length > 0) {
         util.setSuccess(200, 'Products retrieved', allProducts)
-
       } else {
-        util.setSuccess(200, 'No Product found')
+        util.setSuccess(200, 'No Product found')//tests for if else?
       }
       return util.send(res)
     } catch (error) {
@@ -22,10 +21,7 @@ class ProductController {
   }
 
   static async createProduct(req, res) {
-    console.log(req.body)
-    console.log("olá")
     if (!req.body.name || !req.body.breakfast || !req.body.price ) {
-      console.log(req.body.name, req.body.breakfast, req.body.price)
       util.setError(400, 'Please provide complete details')
       return util.send(res)
     }

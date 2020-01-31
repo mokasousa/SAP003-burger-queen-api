@@ -10,7 +10,7 @@ class TableController {
       if (allTables.length > 0) {
         util.setSuccess(200, 'Tables retrieved', allTables)
       } else {
-        util.setSuccess(200, 'No Table found')
+        util.setSuccess(200, 'No Table found')//tests for if else?
       }
       return util.send(res)
     } catch (error) {
@@ -20,7 +20,6 @@ class TableController {
   }
 
   static async createTable(req, res) {
-    console.log(req.body.TableNumber, req.body.IsFree)
     if (!req.body.TableNumber || !req.body.IsFree) {
       util.setError(400, 'Please provide complete details')
       return util.send(res)

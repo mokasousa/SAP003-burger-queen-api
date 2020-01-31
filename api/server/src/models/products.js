@@ -12,34 +12,4 @@ module.exports = (sequelize, DataTypes) => {
   return Product;
 };
 
-
-// import Sequelize from 'sequelize';
-// import { sequelize } from '../database/database';
-
-// const Products = sequelize.define(products, {
-//     id: {
-//         primaryKey: true,
-//         type: Sequelize.INTEGER
-//     },
-//     name: {
-//         type: Sequelize.STRING
-//       },
-//     breakfast: {
-//         type: Sequelize.BOOLEAN
-//     },
-//     price: {
-//         type: Sequelize.DECIMAL
-//     },
-//     created_at: {
-//         allowNull: false,
-//         type: Sequelize.DATE
-//     },
-//     updated_at: {
-//         allowNull: false,
-//         type: Sequelize.DATE
-//     }
-// }, {
-//     timestamps:true
-// });
-
-// export default Products;
+//name: ,breakfast: ,price: ,
