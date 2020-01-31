@@ -46,7 +46,7 @@ class ProductController {
     try {
       const updateProduct = await ProductService.updateProduct(id, alterProduct)
       if (!updateProduct) {
-        util.setError(404, `Cannot find product with the id: ${id}`)
+        util.setError(404, `Cannot find Product with the id: ${id}`)
       } else {
         util.setSuccess(200, 'Product updated', updateProduct)
       }

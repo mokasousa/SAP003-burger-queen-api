@@ -12,7 +12,7 @@ describe('Testing Products endpoints:', () => {
     const product = {
       name: "First New Product",
       breakfast: true,
-      price: 10
+      price: 10.0
     }
     chai.request(app)
       .post('/api/products')
@@ -25,7 +25,7 @@ describe('Testing Products endpoints:', () => {
           id: 1,
           name: "First New Product",
           breakfast: true,
-          price: 10
+          price: 10.0
         })
         done()
       })
@@ -141,7 +141,7 @@ describe('Testing Products endpoints:', () => {
       .end((err, res) => {
         expect(res.status).to.equal(404)
         res.body.should.have.property('message')
-            .eql(`Cannot find Product with the id ${productId}`)
+            .eql(`Cannot find Product with the id: ${productId}`)
         done()
       })
   })

@@ -26,7 +26,7 @@ if (config.environment === 'production') {
       dialect: 'postgres',
       dialectOption: {
         ssl: true,
-        native: true
+        decimalNumbers: true
       },
       logging: true
     }
