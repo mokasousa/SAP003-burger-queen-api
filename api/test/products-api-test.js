@@ -53,7 +53,6 @@ describe('Testing Products endpoints:', () => {
       .set('Accept', 'application/json')
       .end((err, res) => {
         expect(res.status).to.equal(200)
-        expect(res.body.message).to.equal('Products retrieved')
         res.body.data[0].should.have.property('id')
         res.body.data[0].should.have.property('name')
         res.body.data[0].should.have.property('breakfast')

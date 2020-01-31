@@ -51,7 +51,6 @@ describe('Testing Tables endpoints:', () => {
       .set('Accept', 'application/json')
       .end((err, res) => {
         expect(res.status).to.equal(200)
-        expect(res.body.message).to.equal('Tables retrieved')
         res.body.data[0].should.have.property('id')
         res.body.data[0].should.have.property('TableNumber')
         res.body.data[0].should.have.property('IsFree')

@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
 };
 
 
-
+// TableId: ,StatusOrder:
 
 // import Sequelize from 'sequelize';
 // import { sequelize } from '../database/database';
@@ -48,6 +48,6 @@ module.exports = (sequelize, DataTypes) => {
 // });
 
 // Orders.hasMany(Items, { foreingKey:'order_id', sourceKey:'id'});
-// Items.belongsTo(Authors, { foreingKey:'order_id', sourceKey:'id'});
+// Items.belongsTo(Orders, { foreingKey:'order_id', sourceKey:'id'});
 
 // export default Orders;
