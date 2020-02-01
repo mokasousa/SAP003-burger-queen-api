@@ -60,6 +60,7 @@ class ItemController {
   static async getItem(req, res) {
     const { id } = req.params
 
+
     if (!Number(id)) {
       util.setError(400, 'Please input a valid numeric id value')
       return util.send(res)
@@ -104,20 +105,20 @@ class ItemController {
   }
 
   static async getItemsByOrder (req, res) {
-    const { orderId } = req.params
+    const { OrderId } = req.params
 
-    if (!Number(id)) {
-      util.setError(400, 'Please input a valid numeric orderId value')
+    if (!Number(OrderId)) {
+      util.setError(400, 'Please input a valid numeric id value')
       return util.send(res)
     }
 
     try {
-      const orderItems = await ItemService.getItemsByOrder(orderId)
+      const orderItems = await ItemService.getItemsByOrder(OrderId)
 
       if (!orderItems) {
-        util.setError(404, `Cannot find Items with the order id ${orderId}`)
+        util.setError(404, `Cannot find Items of Order with id: ${OrderId}`)
       } else {
-        util.setSuccess(200, 'Found Items', theItem)
+        util.setSuccess(200, `Found Items of Order with id ${OrderId}`, orderItems)
       }
       return util.send(res)
     } catch (error) {

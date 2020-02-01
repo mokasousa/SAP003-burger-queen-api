@@ -12,15 +12,16 @@
 //     const table = {
 //         TableNumber:1, 
 //         IsFree: true
-//       }
-//       chai.request(app)
+//     }
+//     chai.request(app)
 //       .post('/api/tables')
 //       .set('Accept', 'application/json')
 //       .send(table)
-//       .end(() => {
-//         console.log(res.body.data.id)////////checar
+//       .end((err, res) => {
+//         console.log(res.body.data.id)
+//         const tableId = res.body.data.id
 //         const order = {
-//           TableId: 1,
+//           TableId: tableId,
 //           StatusOrder: 'Order Status'
 //         }
 //         chai.request(app)
@@ -28,11 +29,13 @@
 //           .set('Accept', 'application/json')
 //           .send(order)
 //           .end((err, res) => {
+//             console.log(res.body.data.id)
+//             const orderId = res.body.data.id
 //             expect(res.status).to.equal(201)
 //             expect(res.body.message).to.equal('Order Created!')
 //             expect(res.body.data).to.include({
-//                 id: 1,
-//                 TableId: 1,
+//                 id: orderId,
+//                 TableId: tableId,
 //                 StatusOrder: 'Order Status'
 //             })
 //             done()
@@ -57,31 +60,74 @@
 //   })
 
 //   it('It should get all orders', (done) => {
-//     chai.request(app)
-//       .get('/api/orders')
+//     const table = {
+//         TableNumber:1, 
+//         IsFree: true
+//       }
+//       chai.request(app)
+//       .post('/api/tables')
 //       .set('Accept', 'application/json')
-//       .end((err, res) => {
-//         expect(res.status).to.equal(200)
-//         res.body.data[0].should.have.property('id')
-//         res.body.data[0].should.have.property('TableId')
-//         res.body.data[0].should.have.property('IsFree')
-//         done()
-//       })
+//       .send(table)
+//       .end(() => {
+//         const tableId = 1
+//         const order = {
+//           TableId: tableId,
+//           StatusOrder: 'Order Status'
+//         }
+//         chai.request(app)
+//           .post('/api/orders')
+//           .set('Accept', 'application/json')
+//           .send(order)
+//           .end(() => {
+//               chai.request(app)
+//                 .get('/api/orders')
+//                 .set('Accept', 'application/json')
+//                 .end((err, res) => {
+//                   expect(res.status).to.equal(200)
+//                   res.body.data[0].should.have.property('id')
+//                   res.body.data[0].should.have.property('TableId')
+//                   res.body.data[0].should.have.property('StatusOrder')
+//                   done()
+//                 })
+//           })
+//     })    
 //   })
 
 //   it('It should get a particular order', (done) => {
-//     const orderId = 1
-//     chai.request(app)
-//       .get(`/api/orders/${orderId}`)
+//     const table = {
+//         TableNumber:1, 
+//         IsFree: true
+//       }
+//       chai.request(app)
+//       .post('/api/tables')
 //       .set('Accept', 'application/json')
-//       .end((err, res) => {
-//         expect(res.status).to.equal(200)
-//         expect(res.body.message).to.equal('Found Order')
-//         res.body.data.should.have.property('id')
-//         res.body.data[0].should.have.property('TableId')
-//         res.body.data[0].should.have.property('IsFree')
-//         done()
+//       .send(table)
+//       .end(() => {
+//         const tableId = 1
+//         const order = {
+//           TableId: tableId,
+//           StatusOrder: 'Order Status'
+//         }
+//         chai.request(app)
+//           .post('/api/orders')
+//           .set('Accept', 'application/json')
+//           .send(order)
+//           .end((err, res) => {
+//               const orderId = 1
+//               chai.request(app)
+//                 .get(`/api/orders/${orderId}`)
+//                 .set('Accept', 'application/json')
+//                 .end((err, res) => {
+//                   expect(res.status).to.equal(200)
+//                   expect(res.body.message).to.equal('Found Order')
+//                   res.body.data.should.have.property('id')
+//                   res.body.data.should.have.property('TableId')
+//                   res.body.data.should.have.property('StatusOrder')
+//                   done()
+//                 })
+//           })
 //       })
+
 //   })
 
 //   it('It should not get a particular order with invalid id', (done) => {
@@ -111,7 +157,6 @@
 //   })
 
 //   it('It should update a order', (done) => {
-        
 //     const table = {
 //         TableNumber:1, 
 //         IsFree: true
@@ -121,9 +166,9 @@
 //       .set('Accept', 'application/json')
 //       .send(table)
 //       .end(() => {
-//         console.log(res.body.data.id)
+//         const tableId = 1
 //         const order = {
-//           TableId: 1,
+//           TableId: tableId,
 //           StatusOrder: 'Order Status'
 //         }
 //         chai.request(app)
@@ -131,11 +176,11 @@
 //           .set('Accept', 'application/json')
 //           .send(order)
 //           .end(() => {
-//             console.log(res.body.data.id)
 //             const orderId = 1
 //             const updatedOrder = {
+//                 id: orderId,
 //                 TableId: 1,
-//                 StatusOrder: 'Order Status'
+//                 StatusOrder: 'Order Status Updated'
 //             }
 //             chai.request(app)
 //             .put(`/api/orders/${orderId}`)
@@ -145,8 +190,8 @@
 //               expect(res.status).to.equal(200)
 //               expect(res.body.message).to.equal('Order updated')
 //               expect(res.body.data.id).equal(updatedOrder.id)
-//               expect(res.body.data.name).equal(updatedOrder.TableNumber)
-//               expect(res.body.data.breakfast).equal(updatedOrder.IsFree)
+//               expect(res.body.data.TableId).equal(updatedOrder.TableId)
+//               expect(res.body.data.StatusOrder).equal(updatedOrder.StatusOrder)
 //             })
 //             done()
 //         })
@@ -167,7 +212,7 @@
 //       .end((err, res) => {
 //         expect(res.status).to.equal(404)
 //         res.body.should.have.property('message')
-//             .eql(`Cannot find Order with the id ${orderId}`)
+//             .eql(`Cannot find Order with the id: ${orderId}`)
 //         done()
 //       })
 //   })
@@ -195,15 +240,15 @@
 //     const table = {
 //         TableNumber:1, 
 //         IsFree: false
-//       }
-//       chai.request(app)
+//     }
+//     chai.request(app)
 //       .post('/api/tables')
 //       .set('Accept', 'application/json')
 //       .send(table)
 //       .end(() => {
-//         console.log(res.body.data.id)
+//         const tableId = 1
 //         const order = {
-//           TableId: 1,
+//           TableId: tableId,
 //           StatusOrder: 'Order Status'
 //         }
 //         chai.request(app)
@@ -211,7 +256,6 @@
 //           .set('Accept', 'application/json')
 //           .send(order)
 //           .end(() => {
-//             console.log(res.body.data.id)
 //             const orderId = 1
 //             chai.request(app)
 //             .delete(`/api/orders/${orderId}`)

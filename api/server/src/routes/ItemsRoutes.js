@@ -13,6 +13,6 @@ router.put('/:id', ItemController.updateItem);
 router.delete('/:id', ItemController.deleteItem);
 
 // /api/items/order/:orderId
-router.get('/order/:orderId', ItemController.getItemsByOrder)
+router.get('/order/:OrderId', ItemController.getItemsByOrder)
 
 export default router;

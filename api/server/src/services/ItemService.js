@@ -65,7 +65,7 @@ class ItemService {
   static async getItemsByOrder (id) {
     try {
       return await database.Item.findAll({
-        where: { orderId: Number(id)  }
+        where: { OrderId: Number(id) }
       })
       
     } catch (error) {
