@@ -10,4 +10,3 @@ module.exports = (sequelize, DataTypes) => {
   };
   return Table;
 };
-//TableNumber:, IsFree:
