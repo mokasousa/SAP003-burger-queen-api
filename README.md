@@ -3,8 +3,7 @@
 ## Resumo
 
 O objetivo desse projeto foi criar um back-end para manejar os dados da aplicação [Burger Queen App](https://github.com/mokasousa/RestaurantApp-Burger-Queen/). 
-Para isso, foi criado um servidor web que deve _servir_ `JSON` através de uma conexão `HTTP`, a partir da integração de uma _API rest_, criada para que fosse compatível com as requisições necessárias na aplicação, 
-a um banco de dados relacional.
+Para isso, foi criado um servidor web que deve _servir_ `JSON` através de uma conexão `HTTP`, a partir da integração de uma _API rest_, criada para que fosse compatível com as requisições necessárias na Burger Queen App, a um banco de dados relacional.
 Esse projeto foi criado a partir de um _boilerplate_, e o [modelo](https://github.com/rfukui/do-excel-ao-sistema-complexo), que já continha a estrutura básica do projeto e partiu-se então para a criação das tabelas necessárias no banco de dados e para criação dos testes de integração.
 
 ## Desenvolvimento
