@@ -45,7 +45,7 @@ Esse projeto foi criado a partir de um _boilerplate_, e o [modelo](https://githu
 
 ### Testes de Integração
 
-[!Test](https://raw.githubusercontent.com/mokasousa/SAP003-burger-queen-api/master/img/bq-api-int-tests-v1.png)
+![Test](https://raw.githubusercontent.com/mokasousa/SAP003-burger-queen-api/master/img/bq-api-int-tests-v1.png)
 
 ### Cursos e Tutoriais de Apoio
 
