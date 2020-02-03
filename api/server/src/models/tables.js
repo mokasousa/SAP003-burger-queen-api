@@ -5,8 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     IsFree: DataTypes.BOOLEAN
   }, {});
   Table.associate = function(models) {
-    //Order.belongsTo(models.Table)
-    Table.hasMany(models.Order)
+    Table.hasMany(models.Order);
   };
   return Table;
 };

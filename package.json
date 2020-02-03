@@ -30,7 +30,7 @@
     "@babel/preset-env": "^7.7.7",
     "@babel/register": "^7.7.7",
     "@babel/runtime": "^7.7.7",
-    "babel-loader": "^8.0.6",
+    "babel-loader": "^8.0.6"
   },
   "devDependencies": {
     "chai": "^4.2.0",

@@ -21,7 +21,6 @@ app.use('/api/orders', ordersRoutes);
 app.use('/api/items', itemsRoutes);
 app.use('/api/tables', tablesRoutes);
 
-// quando recebe uma rota não listada
 app.get('*', (req, res) => res.status(200).send({
   message: 'Boas-vindas à API BURGER QUEEN!',
 }));
@@ -31,20 +30,3 @@ app.listen(port, () => {
 });
 
 export default app;
-
-
-
-
-// // to init the application
-// import app from './app';
-
-// async function main () {
-//     const port = process.env.PORT || 3000;
-//     // app.get('*', (req, res) => res.status(200).send({
-// //     message:'Welcome to this API'
-// // }))
-//     await app.listen(port)
-//     console.log(`Server is running on PORT ${port}`);
-// }
-
-// main()

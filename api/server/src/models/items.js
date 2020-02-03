@@ -6,8 +6,8 @@ module.exports = (sequelize, DataTypes) => {
     StatusItem: DataTypes.STRING
   }, {});
   Item.associate = function(models) {
-    // Item.belongsTo(models.Order);
-    // Item.belongsTo(models.Product);
+    Item.belongsTo(models.Order);
+    Item.belongsTo(models.Product);
   };
   return Item;
 };

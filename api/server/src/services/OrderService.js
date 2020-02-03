@@ -61,6 +61,17 @@ class OrderService {
       throw error
     }
   }
+  
+  static async getOrdersByTable (id) {
+    try {
+      return await database.Order.findAll({
+        where: { TableId: Number(id) }
+      })
+      
+    } catch (error) {
+      throw error
+    }
+  }
 }
 
 export default OrderService;

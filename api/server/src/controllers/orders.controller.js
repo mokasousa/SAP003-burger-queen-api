@@ -102,6 +102,29 @@ class OrderController {
       return util.send(res)
     }
   }
+
+  static async getOrdersByTable (req, res) {
+    const { TableId } = req.params
+
+    if (!Number(TableId)) {
+      util.setError(400, 'Please input a valid numeric id value')
+      return util.send(res)
+    }
+
+    try {
+      const tableOrders = await OrderService.getOrdersByTable(TableId)
+
+      if (!tableOrders) {
+        util.setError(404, `Cannot find Orders of Table with id: ${TableId}`)
+      } else {
+        util.setSuccess(200, `Found Orders of Table with id ${TableId}`, tableOrders)
+      }
+      return util.send(res)
+    } catch (error) {
+      util.setError(404, error)
+      return util.send(res)
+    }
+  }
 }
 
 export default OrderController;

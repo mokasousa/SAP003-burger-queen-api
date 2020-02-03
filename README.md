@@ -12,6 +12,8 @@ Esse projeto foi criado a partir de um _boilerplate_, e o [modelo](https://githu
 
 #### `/products`
 
+Endpoint para retornar e modificar os itens do Menu do restaurante, onde cada item contém o nome, o preço e o tipo de cardápio de cada produto e cada produto possui um id único
+
 * `GET /products`
 * `GET /products/:productid`
 * `POST /products`
@@ -20,22 +22,29 @@ Esse projeto foi criado a partir de um _boilerplate_, e o [modelo](https://githu
 
 #### `/orders`
 
+Endpoint para retornar e atualizar os pedidos do restaurante, onde cada pedido contém o id da mesa e o status do pedido para ser atualizado ao longo do serviço e cada pedido possui um id único.
+
 * `GET /orders`
 * `GET /orders/:orderid`
 * `POST /orders`
 * `PUT /orders/:orderid`
 * `DELETE /orders/:orderid`
+* `GET /orders/table/:tableid` 
 
 #### `/items`
+
+Endpoint para retornar e atualizar os itens dos pedidos, onde cada item contém o id do produto, o id do pedido e o status do item para ser atualizado durante a preparação. Cada item possui um id único que pode ser atualizado independente do pedido, já o status do pedido pode ser atualizado de acordo com os status dos items.
 
 * `GET /items`
 * `GET /items/:itemid`
 * `POST /items`
 * `PUT /items/:itemid`
 * `DELETE /items/:itemid`
-* `GET /items/order/:orderid`
+* `GET /items/order/:orderid` 
 
 #### `/tables`
+
+Endpoint para retornar e atualizar a disponibilidade das mesas do restaurante, onde cada item contém o número da mesa e o status dela para ser atualizado durante o serviço de acordo com os status dos pedidos.
 
 * `GET /tables`
 * `GET /tables/:tableid`
